@@ -1,0 +1,25 @@
+﻿@model Facturacion.Models.TBLPRODUCTO
+@{
+    ViewBag.Title = "Editar";
+    Layout = "~/Views/Shared/_LayoutFacturacion.cshtml";
+}
+
+<h2>Editar</h2>
+
+@using (Html.BeginForm("Editar", "Producto", FormMethod.Post))
+{
+    @Html.HiddenFor(d =>d.IdProducto)
+
+    <p>@Html.LabelFor(d => d.StrNombre): @Html.TextBoxFor(d => d.StrNombre) </p>
+    <p>@Html.LabelFor(d => d.StrCodigo): @Html.TextBoxFor(d => d.StrCodigo)</p>
+    <p>@Html.LabelFor(d => d.NumPrecioCompra): @Html.TextBoxFor(d => d.NumPrecioCompra)</p>
+    <p>@Html.LabelFor(d => d.NumPrecioVenta): @Html.TextBoxFor(d => d.NumPrecioVenta)</p>
+    <p>Categoria:  @Html.DropDownList("IdCategoria") </p>
+    <p>@Html.LabelFor(d => d.StrDetalle): @Html.EditorFor(d => d.StrDetalle)</p>
+    <p>@Html.LabelFor(d => d.strFoto): @Html.EditorFor(d => d.strFoto)</p>
+    <p>@Html.LabelFor(d => d.NumStock): @Html.EditorFor(d => d.NumStock)</p>
+
+    <input value="Guardar" type="submit" class="btn btn-success" />
+    <a class="btn btn-primary" href="~/EmpleadoT">Retornar</a>
+
+}
